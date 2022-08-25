@@ -31,7 +31,10 @@ vim.api.nvim_set_keymap('n', '<Leader>ngt', '<cmd>lua require("neogit").open({ki
 
 -- debugger keybinds
 vim.api.nvim_set_keymap('n', '<Leader>dapui', '<cmd>lua require("dapui").toggle()<CR>', {})
-vim.api.nvim_set_keymap('n', '<Leader>dapb', '<cmd>lua require("dap").toggle_breakpoint()<CR>', {})
-vim.api.nvim_set_keymap('n', '<Leader>dapd', '<cmd>lua require("dap").continue()<CR>', {})
-vim.api.nvim_set_keymap('n', '<Leader>dapsi', '<cmd>lua require("dap").step_into()<CR>', {})
-vim.api.nvim_set_keymap('n', '<Leader>dapso', '<cmd>lua require("dap").step_over()<CR>', {})
+vim.api.nvim_set_keymap('n', '<Leader>db', '<cmd>lua require("dap").toggle_breakpoint()<CR>', {})
+vim.api.nvim_set_keymap('n', '<Leader>dd', '<cmd>lua require("dap").continue()<CR>', {})
+vim.api.nvim_set_keymap('n', '<Leader>di', '<cmd>lua require("dap").step_into()<CR>', {})
+vim.api.nvim_set_keymap('n', '<Leader>do', '<cmd>lua require("dap").step_over()<CR>', {})
+vim.api.nvim_set_keymap('n', '<Leader>dO', '<cmd>lua require("dap").step_out()<CR>', {})
+vim.api.nvim_set_keymap('n', '<Leader>dt', '<cmd>lua require("dap").terminate()<CR>', {})
+
