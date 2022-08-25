@@ -17,4 +17,5 @@ require("git-worktree").setup({
 })
 require("telescope").load_extension("git_worktree")
 
-
+vim.g.blamer_enabled = 1
+vim.g.blamer_delay = 250
