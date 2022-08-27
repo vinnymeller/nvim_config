@@ -5,8 +5,10 @@ vim.api.nvim_set_keymap('i', 'jk', '<Esc>', {noremap = true})
 --vim.api.nvim_set_keymap('n', ' ', '<Leader>', {noremap = true})
 vim.g.mapleader = ' '
 
--- bind leader+f to format the current file with whatever formatter is set
+-- COC keybinds
+-- bind leader+fmt to format the current file with whatever formatter is set
 vim.api.nvim_set_keymap('n', '<Leader>fmt', ':silent call CocAction("format")<CR>', {})
+vim.api.nvim_set_keymap('n', '<Leader>df', '<cmd>split | call CocActionAsync("jumpDefinition")<CR>', {})
 
 -- how the fuck do i convert this to lua?
 vim.api.nvim_command [[ inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>" ]]
@@ -37,4 +39,5 @@ vim.api.nvim_set_keymap('n', '<Leader>di', '<cmd>lua require("dap").step_into()<
 vim.api.nvim_set_keymap('n', '<Leader>do', '<cmd>lua require("dap").step_over()<CR>', {})
 vim.api.nvim_set_keymap('n', '<Leader>dO', '<cmd>lua require("dap").step_out()<CR>', {})
 vim.api.nvim_set_keymap('n', '<Leader>dt', '<cmd>lua require("dap").terminate()<CR>', {})
+
 

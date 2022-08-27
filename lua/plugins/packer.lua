@@ -5,7 +5,11 @@ vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
   -- Packer can manage itself
-  use 'wbthomason/packer.nvim'
+  use { 'wbthomason/packer.nvim' }
+  -- treesitter for superior syntax highlighting
+  use { 'nvim-treesitter/nvim-treesitter' }
+  -- plenary which everything uses
+  use { 'nvim-lua/plenary.nvim' }
   -- catpuccin for my beautiful themes
   use { "catppuccin/nvim", as = "catppuccin" }
   -- nvim-tree for file explorer
@@ -19,19 +23,21 @@ return require('packer').startup(function(use)
   -- status bar
   use { 'feline-nvim/feline.nvim' }
   -- primagen refactoring tools TODO: figure out how the fuck they work
-  use { "ThePrimeagen/refactoring.nvim", requires = { {"nvim-lua/plenary.nvim"}, {"nvim-treesitter/nvim-treesitter"} } }
+  use { "ThePrimeagen/refactoring.nvim" } 
   -- TELESCOPE, to LOOK
-  use { 'nvim-telescope/telescope.nvim', tag = '0.1.0', requires = { {'nvim-lua/plenary.nvim'} } }
+  use { 'nvim-telescope/telescope.nvim', tag = '0.1.0' }
   -- git-worktrees, because this is a real issue frfr, prime is the goat
   use { 'ThePrimeagen/git-worktree.nvim' }
   -- magit for neovim 
-  use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
+  use { 'TimUntersberger/neogit' }
   -- diffview for use with magit
-  use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
-  -- treesitter for superior syntax highlighting
-  use { 'nvim-treesitter/nvim-treesitter', run = function() require("nvim-treesitter.install").update({ with_sync = true }) end }
+  use { 'sindrets/diffview.nvim' } 
+  -- dap debugger
+  use { "mfussenegger/nvim-dap" } 
   -- debugger ui
-  use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
+  use { "rcarriga/nvim-dap-ui" } 
   -- git blamer
   use { 'APZelos/blamer.nvim' }
+  -- autosave
+  use { 'Pocco81/auto-save.nvim' }
 end)
