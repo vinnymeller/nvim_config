@@ -5,14 +5,6 @@ vim.api.nvim_set_keymap('i', 'jk', '<Esc>', {noremap = true})
 --vim.api.nvim_set_keymap('n', ' ', '<Leader>', {noremap = true})
 vim.g.mapleader = ' '
 
--- COC keybinds
--- bind leader+fmt to format the current file with whatever formatter is set
-vim.api.nvim_set_keymap('n', '<Leader>fmt', ':silent call CocAction("format")<CR>', {})
-vim.api.nvim_set_keymap('n', '<Leader>df', '<cmd>split | call CocActionAsync("jumpDefinition")<CR>', {})
-
--- how the fuck do i convert this to lua?
-vim.api.nvim_command [[ inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>" ]]
-
 -- telescope maps
 vim.api.nvim_set_keymap('n', '<Leader>ff', '<cmd>lua require("telescope.builtin").find_files()<CR>', {})
 vim.api.nvim_set_keymap('n', '<Leader>fg', '<cmd>lua require("telescope.builtin").live_grep()<CR>', {})
