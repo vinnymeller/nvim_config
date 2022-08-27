@@ -18,26 +18,37 @@ return require('packer').startup(function(use)
   use { 'github/copilot.vim' }
   -- nvim-lspconfig for language server protocol help
   use { 'neovim/nvim-lspconfig' }
-  -- completion & language servers
-  use {'neoclide/coc.nvim', branch = 'release'}
   -- status bar
   use { 'feline-nvim/feline.nvim' }
   -- primagen refactoring tools TODO: figure out how the fuck they work
-  use { "ThePrimeagen/refactoring.nvim" } 
+  use { "ThePrimeagen/refactoring.nvim" }
   -- TELESCOPE, to LOOK
   use { 'nvim-telescope/telescope.nvim', tag = '0.1.0' }
   -- git-worktrees, because this is a real issue frfr, prime is the goat
   use { 'ThePrimeagen/git-worktree.nvim' }
-  -- magit for neovim 
+  -- magit for neovim
   use { 'TimUntersberger/neogit' }
   -- diffview for use with magit
-  use { 'sindrets/diffview.nvim' } 
+  use { 'sindrets/diffview.nvim' }
   -- dap debugger
-  use { "mfussenegger/nvim-dap" } 
+  use { "mfussenegger/nvim-dap" }
   -- debugger ui
-  use { "rcarriga/nvim-dap-ui" } 
+  use { "rcarriga/nvim-dap-ui" }
   -- git blamer
   use { 'APZelos/blamer.nvim' }
   -- autosave
   use { 'Pocco81/auto-save.nvim' }
+
+
+  -- lsp shit
+
+  -- nvim-cmp
+  use { 'hrsh7th/nvim-cmp' }
+  use { 'hrsh7th/cmp-nvim-lsp' }
+  use { 'hrsh7th/cmp-buffer' }
+  use { 'hrsh7th/cmp-path' }
+
+  -- for snips
+  use { 'L3MON4D3/LuaSnip' }
+  use { 'saadparwaiz1/cmp_luasnip' }
 end)
