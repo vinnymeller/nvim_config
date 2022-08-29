@@ -20,8 +20,6 @@ return require('packer').startup(function(use)
   use { 'neovim/nvim-lspconfig' }
   -- status bar
   use { 'feline-nvim/feline.nvim' }
-  -- primagen refactoring tools TODO: figure out how the fuck they work
-  use { "ThePrimeagen/refactoring.nvim" }
   -- TELESCOPE, to LOOK
   use { 'nvim-telescope/telescope.nvim', tag = '0.1.0' }
   -- git-worktrees, because this is a real issue frfr, prime is the goat
@@ -38,7 +36,8 @@ return require('packer').startup(function(use)
   use { 'APZelos/blamer.nvim' }
   -- autosave
   use { 'Pocco81/auto-save.nvim' }
-
+  -- nvim auto-pairs
+  use { 'windwp/nvim-autopairs' }
 
   -- lsp shit
 
@@ -51,4 +50,8 @@ return require('packer').startup(function(use)
   -- for snips
   use { 'L3MON4D3/LuaSnip' }
   use { 'saadparwaiz1/cmp_luasnip' }
+
+  -- rust tools, the goated rust experience
+  use { 'simrat39/rust-tools.nvim' }
 end)
+

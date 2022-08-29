@@ -8,8 +8,6 @@ require("neogit").setup({
 -- diffview setup
 require("diffview").setup({})
 
--- primagen refactoring setup
-require('refactoring').setup({})
 
 -- primagen git worktree for switching between worktrees
 require("git-worktree").setup({
