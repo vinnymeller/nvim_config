@@ -38,6 +38,8 @@ return require('packer').startup(function(use)
   use { 'Pocco81/auto-save.nvim' }
   -- nvim auto-pairs
   use { 'windwp/nvim-autopairs' }
+  -- leap instead of that shitty s key
+  use {'ggandor/leap.nvim'}
 
   -- lsp shit
 
