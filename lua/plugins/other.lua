@@ -21,5 +21,12 @@ require("auto-save").setup({
 
 require("leap").set_default_keymaps() -- nukes my s key
 
+
 -- whichkey for discoverability
 require("which-key").setup({})
+
+require("tint").setup({
+    tint = -20,
+    saturation = 0.75,
+})
+

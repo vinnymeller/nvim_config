@@ -9,7 +9,7 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.smartindent = true
 
-vim.opt.scrolloff = 8
+vim.opt.scrolloff = 12
 
 vim.opt.updatetime = 30
 
@@ -21,4 +21,7 @@ vim.opt.hlsearch = false
 vim.opt.autoread = true
 
 vim.opt.splitbelow = true
+vim.opt.splitright = true
+vim.opt.swapfile = false
+vim.opt.laststatus = 3
 

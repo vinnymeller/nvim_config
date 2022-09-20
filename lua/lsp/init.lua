@@ -1,3 +1,5 @@
+local lspconfig = require('lspconfig')
+
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 local attach_funcs = function()
     vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = 0 })
@@ -13,27 +15,40 @@ local attach_funcs = function()
     vim.keymap.set("n", "<Leader>fm", vim.lsp.buf.formatting, { buffer = 0 })
 end
 
-require('lspconfig').gopls.setup({
+lspconfig.gopls.setup({
     capabilities = capabilities,
     on_attach = attach_funcs
 })
 
-require('lspconfig').pyright.setup({
+lspconfig.clangd.setup({
+    capabilities = capabilities,
+    on_attach = attach_funcs,
+})
+
+lspconfig.pyright.setup({
     capabilities = capabilities,
     on_attach = attach_funcs
 })
 
--- require('lspconfig').rust_analyzer.setup({
---    capabilities = capabilities,
---    on_attach = attach_funcs
--- })
+lspconfig.sqls.setup({
+    capabilities = capabilities,
+    on_attach = function(client, bufnr)
+        attach_funcs()
+        require('sqls').on_attach(client, bufnr)
+        vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>ev', "<Cmd>set opfunc=v:lua.require'sqls.commands'.query<CR>g@"
+            , { silent = true })
+        vim.api.nvim_buf_set_keymap(bufnr, 'n', '<Leader>eq', "<Cmd>SqlsExecuteQueryOnCursor<CR>", {})
+    end
+})
+
+
 local rt = require("rust-tools")
 
 rt.setup({
     server = {
         on_attach = function(_, bufnr)
-            vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
-            vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
+            vim.keymap.set("n", "<Leader>ha", rt.hover_actions.hover_actions, { buffer = bufnr })
+            vim.keymap.set("n", "<Leader>ca", rt.code_action_group.code_action_group, { buffer = bufnr })
             vim.keymap.set("n", "<Leader>me", rt.expand_macro.expand_macro, { buffer = bufnr })
 
             attach_funcs()
@@ -41,18 +56,20 @@ rt.setup({
     },
 })
 
-require('lspconfig').sumneko_lua.setup({
-    capabilities = capabilities,
-    on_attach = attach_funcs
+-- IMPORTANT: make sure to setup lua-dev BEFORE lspconfig
+require("lua-dev").setup({})
+
+-- example to setup sumneko and enable call snippets
+lspconfig.sumneko_lua.setup({
+  Lua = {
+    completion = {
+      callSnippet = "Replace"
+    }
+  }
 })
 
-require('lspconfig').sqlls.setup({
-    capabilities = capabilities,
-    on_attach = attach_funcs
-})
 
-
-require('lspconfig').bashls.setup({
+lspconfig.bashls.setup({
     capabilities = capabilities,
     on_attach = attach_funcs
 })
@@ -86,6 +103,3 @@ cmp.setup({
         { name = 'buffer' },
     })
 })
-
-
-
