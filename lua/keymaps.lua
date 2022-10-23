@@ -9,6 +9,8 @@ vim.g.mapleader = ' '
 vim.keymap.set('n', '<Leader>ff', '<cmd>lua require("telescope.builtin").find_files()<CR>', {})
 vim.keymap.set('n', '<Leader>fg', '<cmd>lua require("telescope.builtin").live_grep()<CR>', {})
 vim.keymap.set('n', '<Leader>fb', '<cmd>lua require("telescope.builtin").buffers()<CR>', {})
+vim.keymap.set('n', '<Leader>fc', '<cmd>lua require("telescope.builtin").commands()<CR>', {})
+vim.keymap.set('n', '<Leader>fw', '<cmd>lua require("telescope.builtin").grep_string()<CR>', {})
 vim.keymap.set('n', '<Leader>fh', '<cmd>lua require("telescope.builtin").help_tags()<CR>', {})
 vim.keymap.set('n', '<Leader>gitc', '<cmd>lua require("telescope.builtin").git_commits()<CR>', {})
 vim.keymap.set('n', '<Leader>gitf', '<cmd>lua require("telescope.builtin").git_files()<CR>', {})
@@ -32,3 +34,6 @@ vim.keymap.set('n', '<Leader>do', '<cmd>lua require("dap").step_over()<CR>', {})
 vim.keymap.set('n', '<Leader>dO', '<cmd>lua require("dap").step_out()<CR>', {})
 vim.keymap.set('n', '<Leader>dt', '<cmd>lua require("dap").terminate()<CR>', {})
 
+
+-- format buffer 
+vim.keymap.set("n", "<Leader>fm", '<cmd>FormatWrite<CR>', {})

@@ -18,8 +18,6 @@ vim.opt.colorcolumn = "80"
 vim.opt.wrap = false
 vim.opt.hlsearch = false
 
-vim.opt.autoread = true
-
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.swapfile = false

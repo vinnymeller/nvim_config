@@ -83,10 +83,11 @@ return require('packer').startup(function(use)
     -- rust tools, the goated rust experience
     use { 'simrat39/rust-tools.nvim' }
     -- auto configure sumneko_lua lsp
-    use { "folke/lua-dev.nvim" }
+    use { "folke/neodev.nvim" }
     -- sqls lsp extra plugins
 
     -- other
     -------------------------------
-    use { 'Pocco81/auto-save.nvim' }
+    use { 'nullishamy/autosave.nvim' }
+    use { 'mhartington/formatter.nvim' }
 end)

@@ -1,6 +1,7 @@
 local lspconfig = require('lspconfig')
 
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+
 local attach_funcs = function()
     vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = 0 })
     vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = 0 })
@@ -12,7 +13,6 @@ local attach_funcs = function()
     vim.keymap.set("n", "<Leader>dl", "<cmd>Telescope diagnostics<CR>", { buffer = 0 })
     vim.keymap.set("n", "<Leader>pr", "<cmd>Telescope lsp_references<CR>", { buffer = 0 })
     vim.keymap.set("n", "<Leader>rn", vim.lsp.buf.rename, { buffer = 0 })
-    vim.keymap.set("n", "<Leader>fm", vim.lsp.buf.formatting, { buffer = 0 })
 end
 
 lspconfig.gopls.setup({
@@ -50,14 +50,14 @@ rt.setup({
             vim.keymap.set("n", "<Leader>ha", rt.hover_actions.hover_actions, { buffer = bufnr })
             vim.keymap.set("n", "<Leader>ca", rt.code_action_group.code_action_group, { buffer = bufnr })
             vim.keymap.set("n", "<Leader>me", rt.expand_macro.expand_macro, { buffer = bufnr })
-
+            vim.keymap.set("n", "<Leader>oc", rt.open_cargo_toml.open_cargo_toml, { buffer = bufnr })
             attach_funcs()
         end,
     },
 })
 
--- IMPORTANT: make sure to setup lua-dev BEFORE lspconfig
-require("lua-dev").setup({})
+-- IMPORTANT: make sure to setup neodev BEFORE lspconfig
+require("neodev").setup({})
 
 -- example to setup sumneko and enable call snippets
 lspconfig.sumneko_lua.setup({
