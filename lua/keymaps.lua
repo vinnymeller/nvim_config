@@ -6,7 +6,7 @@ vim.api.nvim_set_keymap('i', 'jk', '<Esc>', {noremap = true})
 vim.g.mapleader = ' '
 
 -- telescope maps
-vim.keymap.set('n', '<Leader>ff', '<cmd>lua require("telescope.builtin").find_files()<CR>', {})
+vim.keymap.set('n', '<Leader>ff', '<cmd>Telescope find_files hidden=true find_command=rg,--ignore,--hidden,--files<CR>', {})
 vim.keymap.set('n', '<Leader>fg', '<cmd>lua require("telescope.builtin").live_grep()<CR>', {})
 vim.keymap.set('n', '<Leader>fb', '<cmd>lua require("telescope.builtin").buffers()<CR>', {})
 vim.keymap.set('n', '<Leader>fc', '<cmd>lua require("telescope.builtin").commands()<CR>', {})

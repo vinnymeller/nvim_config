@@ -1,3 +1,11 @@
+require('telescope').setup({
+    defaults = {
+        file_ignore_patterns = {
+            ".git",
+        }
+    }
+})
+
 require("nvim-autopairs").setup({})
 
 require('autosave').setup({})
