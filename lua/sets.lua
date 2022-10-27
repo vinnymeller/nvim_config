@@ -23,3 +23,4 @@ vim.opt.splitright = true
 vim.opt.swapfile = false
 vim.opt.laststatus = 3
 
+vim.opt.mouse = ""

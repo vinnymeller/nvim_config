@@ -8,7 +8,15 @@ require("formatter").setup {
   filetype = {
     -- Formatter configurations are executed in order where there are multiple
     rust = {
-        require("formatter.filetypes.rust").rustfmt,
+        -- custom rustfmt commands
+        function()
+            return {
+                exe = "rustfmt",
+                args = {"--edition=2021"},
+                stdin = true
+            }
+        end
+        -- require("formatter.filetypes.rust").rustfmt,
     },
     python = {
         require("formatter.filetypes.python").black,
