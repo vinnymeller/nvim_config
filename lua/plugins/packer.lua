@@ -29,6 +29,9 @@ return require('packer').startup(function(use)
         require("noice").setup({
             messages = {
                 enabled = false,
+            },
+            popupmenu = {
+                enabled = false,
             }
         })
       end,
