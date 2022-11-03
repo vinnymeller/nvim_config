@@ -3,7 +3,6 @@ vim.g.catpuccin_flavour = "frappe"
 require("catppuccin").setup()
 vim.cmd [[colorscheme catppuccin]]
 
-
 -- configure status bar
 require('feline').setup()
 
@@ -52,3 +51,4 @@ require("indent_blankline").setup {
         "IndentBlanklineIndent6",
     },
 }
+

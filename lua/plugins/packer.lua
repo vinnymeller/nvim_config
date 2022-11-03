@@ -21,24 +21,17 @@ return require('packer').startup(function(use)
     use { "levouh/tint.nvim" } -- slightly tint background windows
     -- colored lines to track indents
     use { "lukas-reineke/indent-blankline.nvim" }
-    -- Packer
-    use {
-      "folke/noice.nvim",
-      event = "VimEnter",
-      config = function()
-        -- require("noice").setup()
-      end,
-      requires = {
-        -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-        "MunifTanjim/nui.nvim",
-        -- OPTIONAL:
-        --   `nvim-notify` is only needed, if you want to use the notification view.
-        --   If not available, we use `mini` as the fallback
-        "rcarriga/nvim-notify",
-        }
-    }
+    -- Noice, too unstable for now. I will come back to this
+    -- use {
+    --   "folke/noice.nvim",
+    --   -- event = "VimEnter",
+    --   requires = {
+    --     "MunifTanjim/nui.nvim",
+    --     "rcarriga/nvim-notify",
+    --     }
+    -- }
 
-    -- navigation, file management, etc
+    -- -- navigation, file management, etc
     -------------------------------
     -- nvim-tree for file explorer
     use { 'kyazdani42/nvim-tree.lua', requires = { 'kyazdani42/nvim-web-devicons' }, tag = 'nightly' }
