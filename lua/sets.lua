@@ -12,7 +12,7 @@ vim.opt.scrolloff = 12
 
 vim.opt.updatetime = 30
 
-vim.opt.colorcolumn = "80"
+vim.opt.colorcolumn = "120"
 
 vim.opt.wrap = false
 vim.opt.hlsearch = false
