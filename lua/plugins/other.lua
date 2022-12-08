@@ -1,4 +1,11 @@
 require("telescope").setup({
+	pickers = {
+		live_grep = {
+			additional_args = function(opts)
+				return { "--hidden" }
+			end,
+		},
+	},
 	defaults = {
 		file_ignore_patterns = {
 			".git/",
@@ -19,3 +26,10 @@ require("tint").setup({
 	tint = -20,
 	saturation = 0.75,
 })
+
+-- enable all filetypes for Copilot
+vim.g.copilot_filetypes = {
+	["*"] = true,
+}
+
+require("swagger-preview").setup({})

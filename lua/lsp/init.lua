@@ -7,7 +7,6 @@ local attach_funcs = function()
 	vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = 0 })
 	vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, { buffer = 0 })
 	vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { buffer = 0 })
-	vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { buffer = 0 })
 	vim.keymap.set("n", "<Leader>dj", vim.diagnostic.goto_next, { buffer = 0 })
 	vim.keymap.set("n", "<Leader>dk", vim.diagnostic.goto_prev, { buffer = 0 })
 	vim.keymap.set("n", "<Leader>dl", "<cmd>Telescope diagnostics<CR>", { buffer = 0 })
@@ -28,6 +27,19 @@ lspconfig.clangd.setup({
 lspconfig.pyright.setup({
 	capabilities = capabilities,
 	on_attach = attach_funcs,
+})
+
+lspconfig.yamlls.setup({
+	capabilities = capabilities,
+	on_attach = attach_funcs,
+    settings = {
+        yaml = {
+            schemas = {
+                ["https://json.schemastore.org/github-workflow.json"] = ".github/workflows/*",
+                ["https://json.schemastore.org/swagger-2.0.json"] = "*[swagger|gateway]*.yaml",
+            },
+        }
+    }
 })
 
 lspconfig.sqls.setup({

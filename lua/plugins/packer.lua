@@ -21,6 +21,10 @@ return require("packer").startup(function(use)
 	use({ "levouh/tint.nvim" }) -- slightly tint background windows
 	-- colored lines to track indents
 	use({ "lukas-reineke/indent-blankline.nvim" })
+	-- shows scrollbar on the right to visually indicate where in file i am
+	use({ "dstein64/nvim-scrollview" })
+	-- make a duck waddle around
+	use({ "tamton-aquib/duck.nvim" })
 	-- Noice, too unstable for now. I will come back to this
 	-- use {
 	--   "folke/noice.nvim",
@@ -108,5 +112,10 @@ return require("packer").startup(function(use)
 		run = function()
 			vim.fn["mkdp#util#install"]()
 		end,
+	})
+
+	use({
+		"vinnymeller/swagger-preview.nvim",
+		run = "npm install -g swagger-ui-watcher",
 	})
 end)
