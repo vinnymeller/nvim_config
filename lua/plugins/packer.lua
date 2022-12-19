@@ -105,6 +105,7 @@ return require("packer").startup(function(use)
 	-------------------------------
 	use({ "nullishamy/autosave.nvim" })
 	use({ "mhartington/formatter.nvim" })
+	use({ "gpanders/editorconfig.nvim" })
 
 	-- install without yarn or npm
 	use({

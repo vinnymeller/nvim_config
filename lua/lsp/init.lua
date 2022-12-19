@@ -14,10 +14,6 @@ local attach_funcs = function()
 	vim.keymap.set("n", "<Leader>rn", vim.lsp.buf.rename, { buffer = 0 })
 end
 
-lspconfig.gopls.setup({
-	capabilities = capabilities,
-	on_attach = attach_funcs,
-})
 
 lspconfig.clangd.setup({
 	capabilities = capabilities,
@@ -32,14 +28,14 @@ lspconfig.pyright.setup({
 lspconfig.yamlls.setup({
 	capabilities = capabilities,
 	on_attach = attach_funcs,
-    settings = {
-        yaml = {
-            schemas = {
-                ["https://json.schemastore.org/github-workflow.json"] = ".github/workflows/*",
-                ["https://json.schemastore.org/swagger-2.0.json"] = "*[swagger|gateway]*.yaml",
-            },
-        }
-    }
+	settings = {
+		yaml = {
+			schemas = {
+				["https://json.schemastore.org/github-workflow.json"] = ".github/workflows/*",
+				["https://json.schemastore.org/swagger-2.0.json"] = "*gateway*.yaml",
+			},
+		},
+	},
 })
 
 lspconfig.sqls.setup({
