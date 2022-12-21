@@ -441,6 +441,21 @@ require("mason-lspconfig").setup_handlers({
 			},
 		})
 	end,
+	["pylsp"] = function()
+		require("lspconfig").pylsp.setup({
+			on_attach = on_attach,
+			capabilities = capabilities,
+			settings = {
+				pylsp = {
+					plugins = {
+						pycodestyle = {
+							ignore = { "W391", "E501" },
+						},
+					},
+				},
+			},
+		})
+	end,
 })
 
 -- Turn on lsp status information
@@ -579,9 +594,10 @@ vim.api.nvim_create_autocmd("BufEnter", {
 })
 
 -- automatically format on certain conditions that are unlikely to cause issues with cursor
-vim.api.nvim_create_autocmd("BufWritePost", {
+vim.api.nvim_create_autocmd("WinLeave", {
 	callback = function()
-		vim.cmd("FormatWrite")
+		-- silntry try calling a command
+        vim.cmd([[silent! FormatWrite]])
 	end,
 })
 
