@@ -222,10 +222,16 @@ vim.keymap.set("n", "<leader><space>", require("telescope.builtin").buffers, { d
 vim.keymap.set("n", "<leader>/", function()
 	-- You can pass additional configuration to telescope to change theme, layout, etc.
 	require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
-		winblend = 10,
+		winblend = 20,
 		previewer = false,
 	}))
 end, { desc = "[/] Fuzzily search in current buffer]" })
+-- vim.keymap.set(
+-- 	"n",
+-- 	"<leader>/",
+-- 	require("telescope.builtin").current_buffer_fuzzy_find,
+-- 	{ desc = "[/] Fuzzily search in current buffer]" }
+-- )
 
 vim.keymap.set("n", "<leader>ff", require("telescope.builtin").find_files, { desc = "[F]ind [F]iles" })
 vim.keymap.set("n", "<leader>fh", require("telescope.builtin").help_tags, { desc = "[F]ind [H]elp" })
@@ -397,7 +403,7 @@ require("mason-lspconfig").setup_handlers({
 	["yamlls"] = function()
 		require("lspconfig").yamlls.setup({
 			capabilities = capabilities,
-			on_attach = attach_funcs,
+			on_attach = on_attach,
 			settings = {
 				yaml = {
 					schemas = {
