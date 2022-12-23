@@ -408,7 +408,7 @@ require("mason-lspconfig").setup_handlers({
 				yaml = {
 					schemas = {
 						["https://json.schemastore.org/github-workflow.json"] = ".github/workflows/*",
-						["https://json.schemastore.org/swagger-2.0.json"] = "*gateway*.yaml",
+						["https://json.schemastore.org/swagger-2.0.json"] = "swagger*.yaml",
 					},
 				},
 			},
